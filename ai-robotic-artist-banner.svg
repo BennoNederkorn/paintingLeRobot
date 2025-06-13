@@ -1,0 +1,101 @@
+
+        <svg width="1200" height="400" viewBox="0 0 1200 400" xmlns="http://www.w3.org/2000/svg" style="font-family: 'Inter', sans-serif;">
+            <defs>
+                <!-- New vibrant pastel glow color -->
+                <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                    <feGaussianBlur stdDeviation="5" result="coloredBlur" in="SourceGraphic"></feGaussianBlur>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"></feMergeNode>
+                        <feMergeNode in="SourceGraphic"></feMergeNode>
+                    </feMerge>
+                </filter>
+                 <!-- Grid Pattern -->
+                <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#34495e" stroke-width="0.7"></path>
+                </pattern>
+            </defs>
+
+            <!-- New Background Color -->
+            <rect width="1200" height="400" fill="#2c3e50" rx="8"></rect>
+            <rect width="1200" height="400" fill="url(#grid)" opacity="0.1" rx="8"></rect>
+
+            <!-- Header Text with new toned-down color -->
+            <text x="40" y="70" font-size="48" font-weight="900" fill="#e59866" style="letter-spacing: -0.05em;">AI-Powered Stencil Drawing Robot</text>
+            <text x="40" y="110" font-size="20" fill="#ecf0f1">Transforming Digital Images into Physical Art with LLMs and Imitation Learning</text>
+
+            <!-- Workflow Icons and Text (Manually Positioned) -->
+            <g transform="translate(0, 180)">
+                <!-- 1. Digital Image -->
+                <g transform="translate(80, 50)">
+                    <svg width="64" height="64" x="0" y="0" fill="none" stroke="#5dade2" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l-1.586-1.586a2 2 0 00-2.828 0L6 14m6-6l.01.01"></path><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect></svg>
+                    <text x="32" y="78" font-size="14" fill="#bdc3c7" text-anchor="middle" font-weight="600">Digital Image</text>
+                </g>
+
+                <!-- NEW Arrow 1 -->
+                 <g transform="translate(220, 80)" fill="#7f8c8d">
+                    <path d="M0 -5 L10 5 L0 15 Z" transform="translate(0, -5) scale(0.8)"></path>
+                    <path d="M0 -5 L10 5 L0 15 Z" transform="translate(20, -5) scale(0.8)"></path>
+                </g>
+
+
+                <!-- 2. CV & LLM Planning -->
+                <g transform="translate(320, 50)">
+                    <g filter="url(#glow)" fill="#48c9b0">
+                        <svg width="64" height="64" x="0" y="0" fill="none" stroke="#48c9b0" stroke-width="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                    </g>
+                    <text x="32" y="78" font-size="14" fill="#bdc3c7" text-anchor="middle" font-weight="600">CV &amp; LLM Planning</text>
+                </g>
+
+                <!-- NEW Arrow 2 -->
+                <g transform="translate(460, 80)" fill="#7f8c8d">
+                    <path d="M0 -5 L10 5 L0 15 Z" transform="translate(0, -5) scale(0.8)"></path>
+                    <path d="M0 -5 L10 5 L0 15 Z" transform="translate(20, -5) scale(0.8)"></path>
+                </g>
+
+
+                <!-- 3. NEW Dual-Arm Drawing Icon -->
+                <g transform="translate(580, 50)">
+                    <g>
+                        <!-- Arm 1 (Holding Stencil) -->
+                        <path d="M 0 64 C 10 30, 20 30, 30 20" stroke="#af7ac5" stroke-width="7" stroke-linecap="round" fill="none"></path>
+                        <circle cx="0" cy="64" r="7" fill="#af7ac5"></circle>
+                        <circle cx="30" cy="20" r="4" fill="#af7ac5"></circle>
+                        <rect x="25" y="-10" width="30" height="20" rx="2" fill="#af7ac5" transform="rotate(20, 30, 20)"></rect>
+                        
+                        <!-- Arm 2 (Holding Pen) -->
+                        <path d="M 96 64 C 86 30, 76 30, 66 20" stroke="#5dade2" stroke-width="7" stroke-linecap="round" fill="none"></path>
+                        <circle cx="96" cy="64" r="7" fill="#5dade2"></circle>
+                        <circle cx="66" cy="20" r="4" fill="#5dade2"></circle>
+                        <path d="M 62 16 L 50 4" stroke="#5dade2" stroke-width="5" stroke-linecap="round"></path>
+                    </g>
+                    <text x="48" y="78" font-size="14" fill="#bdc3c7" text-anchor="middle" font-weight="600">Dual-Arm Drawing</text>
+                </g>
+                
+                <!-- NEW Arrow 3 -->
+                 <g transform="translate(740, 80)" fill="#7f8c8d">
+                    <path d="M0 -5 L10 5 L0 15 Z" transform="translate(0, -5) scale(0.8)"></path>
+                    <path d="M0 -5 L10 5 L0 15 Z" transform="translate(20, -5) scale(0.8)"></path>
+                </g>
+
+                <!-- 4. Physical Artwork -->
+                <g transform="translate(840, 50)">
+                    <svg width="64" height="64" fill="#e59866" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"></path></svg>
+                    <text x="32" y="78" font-size="14" fill="#bdc3c7" text-anchor="middle" font-weight="600">Physical Artwork</text>
+                </g>
+            </g>
+
+            <!-- Footer Tech Stack -->
+            <text x="492" y="360" font-size="14" fill="#bdc3c7" text-anchor="middle">
+                <tspan font-weight="bold">Tech Stack:</tspan>
+                <tspan dx="1em">LeRobot</tspan>
+                <tspan dx="1em" dy="0">•</tspan>
+                <tspan dx="1em" dy="0">Mistral AI</tspan>
+                <tspan dx="1em" dy="0">•</tspan>
+                <tspan dx="1em" dy="0">Intel RealSense</tspan>
+                <tspan dx="1em" dy="0">•</tspan>
+                <tspan dx="1em" dy="0">OpenCV</tspan>
+                <tspan dx="1em" dy="0">•</tspan>
+                <tspan dx="1em" dy="0">PyTorch</tspan>
+            </text>
+        </svg>
+    
