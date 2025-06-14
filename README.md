@@ -42,7 +42,7 @@ The core workflow is as follows:
 
 ## 🚀 Getting Started
 
-*(This section would typically include setup and installation instructions)*
+### Initial Setup
 
 1.  **Clone the repository:**
     ```bash
@@ -53,12 +53,69 @@ The core workflow is as follows:
     ```bash
     pip install -r requirements.txt
     ```
-3.  **Configure Environment:**
+3.  **Install image editing dependencies (optional):**
+    ```bash
+    python install_dependencies.py
+    ```
+4.  **Configure Environment:**
     Set up your API keys for Mistral AI and Hugging Face in a `.env` file.
-4.  **Run the main application:**
+5.  **Run the main application:**
     ```bash
     python main.py --image path/to/your/image.jpg
     ```
+
+### 🎨 Image Generation & Editing Features
+
+This project also includes powerful AI-driven image generation and editing capabilities:
+
+#### Image Generation
+Generate stunning images from text descriptions using Google's Imagen model:
+
+```bash
+cd image_generation
+python imagegen.py
+```
+
+Choose option 1 to generate new images from text prompts.
+
+#### Image Editing with Object Detection & Inpainting
+
+Our advanced image editing pipeline combines:
+- **YOLO object detection** to identify objects in images
+- **Stable Diffusion inpainting** to seamlessly edit selected objects
+- **Interactive workflow** for precise editing control
+
+**How it works:**
+
+1. **Object Detection**: The system automatically detects all objects in your image using YOLOv8
+2. **Interactive Selection**: Choose which object you want to edit from a numbered list
+3. **Guided Editing**: Describe how you want to modify the selected object
+4. **AI Inpainting**: Stable Diffusion intelligently repaints the selected area
+5. **Result Comparison**: Get the original, detection reference, and edited images
+
+**Usage:**
+```bash
+cd image_generation
+python imagegen.py
+```
+
+Choose option 2 for image editing, then:
+1. Enter the path to your image file
+2. Review the detected objects (saved as reference image)
+3. Select the object ID you want to edit
+4. Describe your desired changes
+5. Wait for the AI to generate your edited image
+
+**Example editing prompts:**
+- "Make this car blue instead of red"
+- "Turn this cat into a dog"
+- "Change this apple to an orange"
+- "Make this person wear a hat"
+
+**System Requirements:**
+- GPU recommended for faster inference
+- ~5GB disk space for Stable Diffusion models (downloaded on first use)
+- ~6MB for YOLO model weights (downloaded automatically)
 
 ---
 *This project represents a proof-of-concept demonstrating the powerful synergy between modern AI techniques and accessible robotic hardware.*

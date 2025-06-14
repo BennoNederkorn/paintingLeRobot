@@ -20,3 +20,7 @@ vertexai
 opencv-python
 mediapipe
 Pillow
+ultralytics
+diffusers
+transformers
+accelerate
