@@ -20,5 +20,11 @@ vertexai
 opencv-python
 mediapipe
 Pillow
+ultralytics
+diffusers
+transformers
+accelerate
+
 SpeechRecognition>=3.10.0
 PyAudio>=0.2.13
+pyrealsense2
