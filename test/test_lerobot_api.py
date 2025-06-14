@@ -2,12 +2,12 @@ from lerobot.common.teleoperators.so101_leader import SO101LeaderConfig, SO101Le
 from lerobot.common.robots.so101_follower import SO101FollowerConfig, SO101Follower
 
 robot_config = SO101FollowerConfig(
-    port="/dev/ttyACM0",
+    port="/dev/ttyACM1",
     id="Colorert",
 )
 
 teleop_config = SO101LeaderConfig(
-    port="/dev/ttyACM1",
+    port="/dev/ttyACM0",
     id="rob",
 )
 
