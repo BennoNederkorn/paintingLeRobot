@@ -17,7 +17,7 @@ from google.auth.transport.requests import Request
 
 # --- Configuration ---
 # Your Google Cloud project ID
-PROJECT_ID = "image-generation-462903"  
+PROJECT_ID = "corded-tensor-462915-d5"  
 
 # The Google Cloud region to use
 LOCATION = "us-central1"
