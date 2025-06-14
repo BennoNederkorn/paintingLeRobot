@@ -1,18 +1,32 @@
 import numpy as np
+import config
 
 class RobotController:
-    def __init__(self):
-        pass
+    # def __init__(self):
+    #     pass
 
-    def start_control_loop(self):
+    def update_color_maps(self, color_maps : list[np.ndarray]):
+        self.color_maps = color_maps
+
+    def start_control_loop(self, color_maps : list[np.ndarray]):
         """
         This starts the robot. The robot is now waiting for additional commands.
         """
+        self.color_maps = color_maps
+
+        for color_map in color_maps:
+            waypoints : list[list[int]] = generate_path(color_map)
+            # grab right pen
+            # pass waypoints to motion planner 
+
     
-    def stop_control_loop(self):
-        """
-        This starts the robot. The robot is now waiting for additional commands.
-        """
+    # def stop_control_loop(self):
+    #     """
+    #     This starts the robot. The robot is now waiting for additional commands.
+    #     """
+
+    def generate_path(self, color_map : np.ndarray) -> list[list[int]]:
+
 
     def start_drawing(self):
         """
@@ -36,5 +50,5 @@ class RobotController:
         """
 
     def draw(self):
-        
+
     

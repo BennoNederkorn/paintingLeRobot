@@ -18,7 +18,7 @@ def main():
     image : np.ndarray = image_generation.generate_image(new_text_prompt, painted_regions)
     segmentated_image : np.ndarray = image_generation.create_segmentated_image(image)
     color_maps : list[np.ndarray] = image_generation.create_color_maps(segmentated_image)
-    robot_controller.start_control_loop(segmentated_image)
+    robot_controller.start_control_loop(color_maps)
 
 
 
