@@ -1,3 +1,5 @@
+import numpy as np
+
 class RobotController:
     def __init__(self):
         pass
@@ -23,5 +25,16 @@ class RobotController:
         """
         This function checks if the robot has finished the whole image.
         """
-        pass
+        return False
+    
+    def get_painted_regions(self):
+        return None
+    
+    def generate_path(self, segmentated_image : np.ndarray):
+        """
+        This function plans the path
+        """
+
+    def draw(self):
+        
     
