@@ -1,15 +1,12 @@
-
 import numpy as np
 import speech_recognition as sr
 from typing import Optional
 
-
-
-def execute_recording() -> Optional[list[float]]:
+def execute_recording() -> Optional[bytes]:
     """
     Records audio while a key is pressed and returns the audio data
     Returns:
-        Optional[list[float]]: Raw audio data or None if recording failed
+        Optional[bytes]: Raw audio data or None if recording failed
     """
     recognizer = sr.Recognizer()
     with sr.Microphone() as source:
@@ -22,7 +19,7 @@ def execute_recording() -> Optional[list[float]]:
             return None
 
 
-def speech_to_text(audio_data: Optional[list[float]]) -> str:
+def speech_to_text(audio_data: Optional[bytes]) -> str:
     """
     Converts speech data to text using Google's speech recognition
     Args:
@@ -45,3 +42,9 @@ def speech_to_text(audio_data: Optional[list[float]]) -> str:
         return "Could not understand audio"
     except sr.RequestError as e:
         return f"Error with speech recognition service; {e}"
+
+if __name__ == "__main__":
+    print("Starting test of speech recognition...")
+    audio = execute_recording()
+    result = speech_to_text(audio)
+    print(f"Transcription result: {result}")
