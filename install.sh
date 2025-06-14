@@ -1,3 +1,7 @@
+echo "Creating virtual environment..."
+conda create -y -n lerobot python=3.10
+conda activate lerobot
+
 echo "Installing system dependencies..."
 sudo apt-get update
 sudo apt-get install -y \
@@ -8,9 +12,8 @@ sudo apt-get install -y \
     build-essential \
     git
 
-echo "Creating virtual environment..."
-python3 -m venv venv
-source venv/bin/activate
+git clone https://github.com/huggingface/lerobot.git
+cd lerobot
 
 echo "Installing Python dependencies..."
 pip install --upgrade pip
