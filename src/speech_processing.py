@@ -40,7 +40,8 @@ def create_txt_prompt() -> str:
         recognizer = sr.Recognizer()
         audio_data = recognizer.record(source)  # Read the audio file
         try:
-            text = recognizer.recognize_google(audio_data, language="de-DE")
+            text = recognizer.recognize_google(audio_data, language="en-US")
+            text += ". Create a colorful, childlike illustration with a vivid background and clearly defined foreground objects in contrasting colors. Simple shapes, playful style, and bold outlines."
         except sr.UnknownValueError:
             print("Could not understand the audio")
             return ""
