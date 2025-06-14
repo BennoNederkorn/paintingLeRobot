@@ -51,10 +51,12 @@ The core workflow is as follows:
 * Install the Google Cloud CLI on your local machine. This will provide the gcloud command-line tool. https://cloud.google.com/sdk/docs/install
 
 4. Authenticate your local environment -- if nothing goes wrong
+Find <project-id>: Tab on the left -> Cloud Overview -> Dashboard -> Project ID
+
 * gcloud auth login
 * gcloud auth application-default login
-* gcloud config set project image-generation-462903
-* gcloud auth application-default set-quota-project image-generation-462903
+* gcloud config set project <project-id>
+* gcloud auth application-default set-quota-project <project-id>
 * gcloud projects list
 
 Full Reset
