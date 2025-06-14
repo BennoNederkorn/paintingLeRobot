@@ -4,7 +4,7 @@
 
 > A dual-arm robotic system that uses a pipeline of computer vision, large language models, and imitation learning to transform digital images into physical drawings with colored stencils.
 
-This project was developed in 48 hours for the **Munich AI & Robotics Hackathon 2024**.
+This project was developed in 48 hours for the **Munich AI & Robotics Hackathon 2025**.
 
 ---
 
