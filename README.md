@@ -55,8 +55,8 @@ Find <project-id>: Tab on the left -> Cloud Overview -> Dashboard -> Project ID
 
 * gcloud auth login
 * gcloud auth application-default login
-* gcloud config set project <project-id>
 * gcloud auth application-default set-quota-project <project-id>
+* gcloud config set project <project-id>
 * gcloud projects list
 
 Full Reset
