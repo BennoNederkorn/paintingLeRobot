@@ -46,8 +46,8 @@ The core workflow is as follows:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/your-username/ai-robotic-artist.git](https://github.com/your-username/ai-robotic-artist.git)
-    cd ai-robotic-artist
+    git clone https://github.com/BennoNederkorn/paintingLeRobot.git
+    cd paintingLeRobot
     ```
 2.  **Install dependencies:**
     ```bash
@@ -61,7 +61,7 @@ The core workflow is as follows:
     Set up your API keys for Mistral AI and Hugging Face in a `.env` file.
 5.  **Run the main application:**
     ```bash
-    python main.py --image path/to/your/image.jpg
+    python3 src/main.py
     ```
 
 ### 🎨 Image Generation & Editing Features

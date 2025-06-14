@@ -20,6 +20,8 @@ vertexai
 opencv-python
 mediapipe
 Pillow
+SpeechRecognition>=3.10.0
+PyAudio>=0.2.13
 ultralytics
 diffusers
 transformers
