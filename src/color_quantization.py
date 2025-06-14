@@ -3,26 +3,13 @@ import numpy as np
 from PIL import Image
 from skimage.color import rgb2lab
 from typing import List, Tuple, Union, Dict
+from config import PALETTE
 
 # === User Configuration ===
 INPUT_DIR = "../image_maps/image_raw"
 OUTPUT_DIR = "../image_maps/output"
 SIZE = (26, 38)    # width × height in dots for A6
 RESAMPLE_FILTER = Image.NEAREST  # blocky downsampling for pen output
-
-PALETTE: Dict[str, Tuple[int, int, int]] = {
-    "green": (0, 128, 0),
-    "orange": (255, 165, 0),
-    "blue": (0, 0, 255),
-    "red": (255, 0, 0),
-    "yellow": (255, 255, 0),
-    "turquoise": (64, 224, 208),
-    "black": (0, 0, 0),
-    "purple": (128, 0, 128),
-    "light_green": (144, 238, 144),
-    "white": (255, 255, 255),
-}
-
 
 def process_and_downsample(
     input_dir: str,
