@@ -14,10 +14,11 @@ class RobotController:
         """
         self.color_maps = color_maps
 
-        for color_map in color_maps:
-            waypoints : list[list[int]] = generate_path(color_map)
-            # grab right pen
-            # pass waypoints to motion planner 
+        for i in range(len(color_maps)):
+            waypoints : list[list[int]] = self.generate_path(color_maps[i])
+            self.grab_pen(i)
+            self.execute_path(waypoints)
+
 
     
     # def stop_control_loop(self):
@@ -26,29 +27,28 @@ class RobotController:
     #     """
 
     def generate_path(self, color_map : np.ndarray) -> list[list[int]]:
-
-
-    def start_drawing(self):
         """
-        This function starts drawing the given image. This function is calling all the ne
+        this function generates a path on which the robot has to move to draw
         """
-        generate_path_plan()
+        pass
 
+    def grab_pen(self, i : int):
+        """
+        this function uses the robot to pick a pen from the pen holder
+        """
+        pass
 
-    def has_robot_finished_image(self):
+    def execute_path(self, waypoints : list[list[int]]):
         """
-        This function checks if the robot has finished the whole image.
+        This function starts drawing the given image.
         """
-        return False
+        pass
+
+    # def has_robot_finished_image(self):
+    #     """
+    #     This function checks if the robot has finished the whole image.
+    #     """
+    #     return False
     
-    def get_painted_regions(self):
-        return None
-    
-    def generate_path(self, segmentated_image : np.ndarray):
-        """
-        This function plans the path
-        """
-
-    def draw(self):
-
-    
+    # def get_painted_regions(self):
+    #     return None
