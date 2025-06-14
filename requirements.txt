@@ -26,3 +26,4 @@ ultralytics
 diffusers
 transformers
 accelerate
+pyrealsense2

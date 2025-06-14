@@ -36,6 +36,9 @@ wheels/
 
 # Environment variables
 .env
+.venv
+robothacka/
+
 
 # Logs
 *.log
