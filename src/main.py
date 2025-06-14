@@ -10,15 +10,16 @@ def main():
 
     # robot_controller.start_control_loop() # starts Thread
     # while(not robot_controller.has_robot_finished_image()): # change this later to a while loop for 
-    
-    new_speach_prompt : Optional[list[float]] = speech_processing.execute_recording()
-    # TODO check if speech processing failed
-    new_text_prompt : str = speech_processing.speech_to_text(new_speach_prompt)
-    painted_regions = robot_controller.get_painted_regions()
-    image : np.ndarray = image_generation.generate_image(new_text_prompt, painted_regions)
-    segmentated_image : np.ndarray = image_generation.create_segmentated_image(image)
-    color_maps : list[np.ndarray] = image_generation.create_color_maps(segmentated_image)
-    robot_controller.start_control_loop(color_maps)
+
+    speech_processing.create_wav_data()
+    text : str = speech_processing.create_txt_prompt()
+
+
+    # painted_regions = robot_controller.get_painted_regions()
+    # image : np.ndarray = image_generation.generate_image(new_text_prompt, painted_regions)
+    # segmentated_image : np.ndarray = image_generation.create_segmentated_image(image)
+    # color_maps : list[np.ndarray] = image_generation.create_color_maps(segmentated_image)
+    # robot_controller.start_control_loop(color_maps)
 
 
 
