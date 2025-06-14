@@ -12,10 +12,13 @@ sudo apt-get install -y \
     build-essential \
     git
 
+echo "Installing lerobot dependencies..."
 git clone https://github.com/huggingface/lerobot.git
 cd lerobot
+pip install -e .
+cd ..
 
-echo "Installing Python dependencies..."
+echo "Installing our dependencies..."
 pip install --upgrade pip
 pip install -r requirements.txt
 
