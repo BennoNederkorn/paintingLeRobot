@@ -31,7 +31,7 @@ def create_wav_data():
         stream.close()
         p.terminate()
 
-def create_txt_prompt() -> Path:
+def create_txt_prompt() -> str:
     """
     take in audio data path, create transcription and return textfile path 
     """
