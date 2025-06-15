@@ -235,7 +235,7 @@ def generate_image_with_rest_api(prompt: str, output_file_path: str, aspect_rati
 # Main image generation function
 # -------------------------------
 
-def generate_image(prompt : str, output_file_path: str, image : np.ndarray | None = None, aspect_ratio: str | None = None) -> np.ndarray:
+def generate_image(prompt : str, output_file_path: str | None = None, aspect_ratio: str | None = None) -> np.ndarray:
     """This function generates a image with dimensions 105x148 using Google's Imagen model. 
     
     Args:

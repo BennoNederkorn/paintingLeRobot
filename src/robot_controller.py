@@ -41,9 +41,10 @@ class RobotController:
         self.waypoint_3D_to_morter_values(waypoint_3D)
 
     def twoD_into_threeD(self, waypoint : tuple[float, float]):
-        
+        pass
 
     def waypoint_3D_to_morter_values(self, waypoint_3D : tuple[float, float, float]):
+        pass
 
     def grab_pen(self, i : int):
         """
