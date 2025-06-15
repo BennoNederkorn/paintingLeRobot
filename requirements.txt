@@ -14,8 +14,6 @@ rich
 ipython
 ipdb
 jupyterlab
-ipympl
-timm
 vertexai
 opencv-python
 mediapipe
@@ -24,7 +22,8 @@ ultralytics
 diffusers
 transformers
 accelerate
-
 SpeechRecognition>=3.10.0
 PyAudio>=0.2.13
 pyrealsense2
+vertexai
+google-cloud-aiplatform
