@@ -40,6 +40,32 @@ The core workflow is as follows:
 * **AI/ML:** `transformers`, `diffusers`, `scikit-learn`, OpenCV
 * **APIs & Cloud:** Mistral AI, Hugging Face Hub (for datasets and models)
 
+### GCloud API
+1. Set up a Google Cloud Project
+* If you don't have one already, create a new project in the Google Cloud Console.
+* Make sure that billing is enabled for your project.
+2. Enable the Vertex AI API
+* In your Google Cloud project, navigate to the "APIs & Services" > "Library".
+* Search for "Vertex AI API" and enable it.
+3. Install the Google Cloud CLI
+* Install the Google Cloud CLI on your local machine. This will provide the gcloud command-line tool. https://cloud.google.com/sdk/docs/install
+
+4. Authenticate your local environment -- if nothing goes wrong
+Find <project-id>: Tab on the left -> Cloud Overview -> Dashboard -> Project ID
+
+* gcloud auth login
+* gcloud auth application-default login
+* gcloud auth application-default set-quota-project <project-id>
+* gcloud config set project <project-id>
+* gcloud projects list
+
+Full Reset
+* gcloud auth application-default revoke
+* gcloud config list
+* gcloud config unset project
+* gcloud config unset billing/quota_project
+* gcloud auth application-default login
+
 ## 🚀 Getting Started
 
 ### Initial Setup

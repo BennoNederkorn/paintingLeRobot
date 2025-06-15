@@ -25,5 +25,8 @@ accelerate
 SpeechRecognition>=3.10.0
 PyAudio>=0.2.13
 pyrealsense2
+
+scikit-image
+pybullet
 vertexai
 google-cloud-aiplatform
