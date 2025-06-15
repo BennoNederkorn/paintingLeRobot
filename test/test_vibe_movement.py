@@ -10,7 +10,7 @@ def send_action_to_follower():
 
     # Create configuration - you may need to adjust these parameters
     config = SO101FollowerConfig(
-        port="COM7",  # Adjust to your actual port
+        port="/dev/ttyACM0",  # Adjust to your actual port
         use_degrees=True,     # Set to False if you want to use range -100 to 100
         max_relative_target=None,  # Set a value like 30 if you want to limit movement speed
         disable_torque_on_disconnect=True,
@@ -18,7 +18,7 @@ def send_action_to_follower():
     )
     
     # Load calibration
-    with open(r"\\wsl.localhost\Ubuntu\home\zhuolelee\paintingLeRobot\utils\joint_calibration.json", "r") as f:
+    with open("utils/joint_calibration.json", "r") as f:
         calibration_data = json.load(f)
     
     # Convert JSON calibration data to MotorCalibration objects
@@ -73,8 +73,8 @@ def send_action_to_follower():
         # Each joint position should be in degrees (if use_degrees=True) or -100 to 100 range
         action = {
             "shoulder_pan.pos": 0,    # Adjust these values as needed
-            "shoulder_lift.pos": 100,
-            "elbow_flex.pos": -100,
+            "shoulder_lift.pos": 50,
+            "elbow_flex.pos": -50,
             "wrist_flex.pos": 0,
             "wrist_roll.pos": 0,
             "gripper.pos": 0,        # Gripper is always 0-100 range
