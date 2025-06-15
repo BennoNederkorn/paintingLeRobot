@@ -57,8 +57,7 @@ def compute_raw_commands(waypoint):
         angle = ik_solution[idx]
         raw_commands[name] = joint_calibrations[name](angle)
     return raw_commands
-
-
+'''
 def main():
     # Example waypoints to test
     waypoints = [
@@ -73,3 +72,10 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+
+
+'''
+
+
