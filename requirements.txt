@@ -30,3 +30,4 @@ PyAudio>=0.2.13
 pyrealsense2
 
 scikit-image
+pybullet
