@@ -18,36 +18,32 @@ class RobotController:
             base_elements=['base']
         )
 
-        
-        
-        pass
+        with open("utils/joint_calibration.json", "r") as f:
+            data = json.load(f)
 
-    def update_color_maps(self, color_maps : list[np.ndarray]):
-        self.color_maps = color_maps
-
-    def start_control_loop(self, color_maps : list[np.ndarray]):
+    def start_control_loop(self, waypoints : dict[str, list[list[tuple[float, float]]]]):
         """
         This starts the robot. The robot is now waiting for additional commands.
         """
-        self.color_maps = color_maps
+        self.waypoints = waypoints
 
-        for i in range(len(color_maps)):
-            waypoints : list[list[int]] = self.generate_path(color_maps[i])
-            self.grab_pen(i)
-            self.execute_path(waypoints)
+        for color, waypoint_listlist in  self.waypoints:
+            # grap pen
+            for waypoint_list in waypoint_listlist:
+                # move to all the points waypoint_list
+                for waypoint in waypoint_list:
+                    self.move_to_waypoint(waypoint)
+                # rise pen
+            # put pen back
 
+    def move_to_waypoint(self, waypoint : tuple[float, float]):
+        waypoint_3D : tuple[float, float, float] = self.twoD_into_threeD(waypoint)
+        self.waypoint_3D_to_morter_values(waypoint_3D)
 
-    
-    # def stop_control_loop(self):
-    #     """
-    #     This starts the robot. The robot is now waiting for additional commands.
-    #     """
+    def twoD_into_threeD(self, waypoint : tuple[float, float]):
+        
 
-    def generate_path(self, color_map : np.ndarray) -> list[list[int]]:
-        """
-        this function generates a path on which the robot has to move to draw
-        """
-        pass
+    def waypoint_3D_to_morter_values(self, waypoint_3D : tuple[float, float, float]):
 
     def grab_pen(self, i : int):
         """
@@ -104,19 +100,17 @@ if __name__ == "__main__":
     # Calibration maps for each joint (example values)
     robotController = RobotController()
     
-    with open("utils/joint_calibration.json", "r") as f:
-        data = json.load(f)
+
 
     joint_calibrations = {}
     action = {}
-            "shoulder_pan.pos": 0,    # Adjust these values as needed
-            "shoulder_lift.pos": 50,
-            "elbow_flex.pos": -50,
-            "wrist_flex.pos": 0,
-            "wrist_roll.pos": 0,
-            "gripper.pos": 0,        # Gripper is always 0-100 range
+            # "shoulder_pan.pos": 0,    # Adjust these values as needed
+            # "shoulder_lift.pos": 50,
+            # "elbow_flex.pos": -50,
+            # "wrist_flex.pos": 0,
+            # "wrist_roll.pos": 0,
+            # "gripper.pos": 0,        # Gripper is always 0-100 range
 
-        }
     for joint_name, values in data.items():
         range_min = values.get("range_min")
         range_max = values.get("range_max")
@@ -129,8 +123,8 @@ if __name__ == "__main__":
         [0.1, 0.1]
     ]
     
-    for joint_name, values in data.items():
-        action[joint_name.pos] = joint_calibrations[]()
+    # for joint_name, values in data.items():
+    #     action[joint_name.pos] = joint_calibrations[]()
 
     for wp in waypoints:
         raw_cmds = robotController.compute_raw_commands(wp)

@@ -30,3 +30,6 @@ scikit-image
 pybullet
 vertexai
 google-cloud-aiplatform
+
+ikpy
+feetech-servo-sdk
