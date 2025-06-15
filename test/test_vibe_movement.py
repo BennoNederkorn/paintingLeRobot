@@ -2,7 +2,7 @@
 
 from lerobot.common.robots.so101_follower.so101_follower import SO101Follower
 from lerobot.common.robots.so101_follower.config_so101_follower import SO101FollowerConfig
-from lerobot.common.motors import MotorCalibration
+from lerobot.common.motors import MotorCalibration, Motor, MotorNormMode
 import time
 import json
 
@@ -10,24 +10,44 @@ def send_action_to_follower():
 
     # Create configuration - you may need to adjust these parameters
     config = SO101FollowerConfig(
-        port="/dev/ttyACM0",  # Adjust to your actual port
+        port="COM7",  # Adjust to your actual port
         use_degrees=True,     # Set to False if you want to use range -100 to 100
         max_relative_target=None,  # Set a value like 30 if you want to limit movement speed
         disable_torque_on_disconnect=True,
         cameras={},  # Empty if no cameras needed for this action
     )
-
-
+    
     # Load calibration
-    with open("utils/joint_calibration.json", "r") as f:
+    with open(r"\\wsl.localhost\Ubuntu\home\zhuolelee\paintingLeRobot\utils\joint_calibration.json", "r") as f:
         calibration_data = json.load(f)
-    # print(f"calibration: {calibration_data}")
-    # config.calibration = calibration_data
+    
+    # Convert JSON calibration data to MotorCalibration objects
+    calibration_dict = {}
+    for motor_name, motor_data in calibration_data.items():
+        calibration_dict[motor_name] = MotorCalibration(
+            id=motor_data["id"],
+            drive_mode=motor_data["drive_mode"],
+            homing_offset=motor_data["homing_offset"],
+            range_min=motor_data["range_min"],
+            range_max=motor_data["range_max"]
+        )
 
     # Create robot instance
     robot = SO101Follower(config)
-    robot.bus.calibration : dict[str, MotorCalibration] = calibration_data
     
+    # Apply the calibration data to the robot
+    robot.calibration = calibration_dict
+    robot.bus.calibration = calibration_dict
+    # Override the motors with custom configuration using calibration data
+    # norm_mode_body = MotorNormMode.DEGREES if config.use_degrees else MotorNormMode.RANGE_M100_100
+    # robot.bus.motors = {
+    #     "shoulder_pan": Motor(1, "sts3215", norm_mode_body),
+    #     "shoulder_lift": Motor(2, "sts3215", norm_mode_body),
+    #     "elbow_flex": Motor(3, "sts3215", norm_mode_body),
+    #     "wrist_flex": Motor(4, "sts3215", norm_mode_body),
+    #     "wrist_roll": Motor(5, "sts3215", norm_mode_body),
+    #     "gripper": Motor(6, "sts3215", MotorNormMode.RANGE_0_100),
+    # }
     # calibration
     # class MotorCalibration:
     #     id: int
@@ -36,12 +56,18 @@ def send_action_to_follower():
     #     range_min: int
     #     range_max: int
 
-
     try:
         # Connect to the robot
         print("Connecting to SO101 Follower...")
-        robot.connect(calibrate=True)  # Set to True if you need calibration
+        robot.connect(calibrate=False)  # Set to False to avoid automatic calibration reading
         print("Connected successfully!")
+        
+        # Write our custom calibration data to the motors
+        robot.bus.write_calibration(calibration_dict)
+        print("Custom calibration data written to motors!")
+        
+        # Manually set the calibration as "completed" since we're using our own calibration data
+        robot.bus._is_calibrated = True
         
         # Define your specific action
         # Each joint position should be in degrees (if use_degrees=True) or -100 to 100 range
@@ -78,6 +104,7 @@ def send_action_to_follower():
             print("Disconnecting...")
             robot.disconnect()
             print("Disconnected successfully!")
+
 
 if __name__ == "__main__":
     send_action_to_follower()
